@@ -1,0 +1,10 @@
+-#!/bin/sh      
+ssh uat@199.199.3.13 <<EOF        
+ cd /var/www/newrsa/be       
+ npm install --backendTest   
+ pm2 delete backendTest
+ pm2 start index.js -f --name=backendTest -- --port 3001
+ 
+ 
+ exit       
+EOF
